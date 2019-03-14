@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf8"?>
+<encode_hevc_vdenc_packet_g12>
+  <test_encode_hevc_vdenc_packet_g12>
+    <Header file=""/>
+    <Source file=""/>
+  </test_encode_hevc_vdenc_packet_g12>
+  <encode_hevc_vdenc_packet_test_case_g12>
+    <Header file=""/>
+    <Source file=""/>
+  </encode_hevc_vdenc_packet_test_case_g12>
+  <encode_hevc_vdenc_mock_packet_g12>
+    <Header file=""/>
+    <Source file=""/>
+  </encode_hevc_vdenc_mock_packet_g12>
+</encode_hevc_vdenc_packet_g12>

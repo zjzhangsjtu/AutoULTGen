@@ -1,0 +1,1 @@
+HevcVdencPipelineG12 ../../../../../../agnostic/gen12/codec/hal/enc/hevc/pipeline/encode_hevc_vdenc_pipeline_g12.h
