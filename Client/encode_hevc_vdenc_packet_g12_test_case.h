@@ -23,22 +23,22 @@ express and approved by Intel in writing.
 ======================= end_copyright_notice ==================================*/
 
 //!
-//! \file     encode_hevc_vdenc_packet_test_case_g12.h
-//! \brief    header file of EncodeHevcVdencPacketTestCaseG12 class
+//! \file     encode_hevc_vdenc_packet_g12_test_case.h
+//! \brief    header file of HevcVdencPktG12TestCase class
 //! \details
 //!
 
-#ifndef __ENCODE_HEVC_VDENC_PACKET_TEST_CASE_G12_H__
-#define __ENCODE_HEVC_VDENC_PACKET_TEST_CASE_G12_H__
+#ifndef __ENCODE_HEVC_VDENC_PACKET_G12_TEST_CASE_H__
+#define __ENCODE_HEVC_VDENC_PACKET_G12_TEST_CASE_H__
 
 #include "memory_leak_detector.h"
 #include "mock_platform.h"
-#include "test_encode_hevc_vdenc_packet_g12.h"
 #include "encode_test_fixture.h"
+#include "test_encode_hevc_vdenc_packet_g12.h"
 
 namespace encode
 {
-    class EncodeHevcVdencPacketTestCaseG12 : public EncodeTestFixture
+    class HevcVdencPktG12TestCase : public EncodeTestFixture
     {
 
     protected:
