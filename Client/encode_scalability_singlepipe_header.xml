@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf8"?>
+<encode_scalability_singlepipe.h>
+  <test_encode_scalability_singlepipe.h>
+    <Header file="memory_leak_detector.h"/>
+    <Header file="mock_platform.h"/>
+    <Header file="encode_test_fixture.h"/>
+    <Header file="encode_scalability_singlepipe.h"/>
+    <Source file="test_encode_scalability_singlepipe.h"/>
+  </test_encode_scalability_singlepipe.h>
+  <encode_scalability_singlepipe_test_case.h>
+    <Header file="memory_leak_detector.h"/>
+    <Header file="mock_platform.h"/>
+    <Header file="encode_test_fixture.h"/>
+    <Header file="test_encode_scalability_singlepipe.h"/>
+    <Source file="encode_scalability_singlepipe_test_case.h"/>
+  </encode_scalability_singlepipe_test_case.h>
+  <mock_encode_scalability_singlepipe.h>
+    <Header file=""/>
+    <Source file=""/>
+  </mock_encode_scalability_singlepipe.h>
+</encode_scalability_singlepipe.h>

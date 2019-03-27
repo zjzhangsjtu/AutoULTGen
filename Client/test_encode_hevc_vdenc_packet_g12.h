@@ -1,4 +1,4 @@
-/*===================== begin_copyright_notice ==================================
+encode_hevc_vdenc_packet_g12.h/*===================== begin_copyright_notice ==================================
 
 INTEL CONFIDENTIAL
 Copyright 2018
@@ -24,14 +24,13 @@ express and approved by Intel in writing.
 
 //!
 //! \file     test_encode_hevc_vdenc_packet_g12.h
-//! \brief    header file of HevcVdencPktG12 class
+//! \brief    header file of TestHevcVdencPktG12 class
 //! \details
 //!
 
 #ifndef __TEST_ENCODE_HEVC_VDENC_PACKET_G12_H__
 #define __TEST_ENCODE_HEVC_VDENC_PACKET_G12_H__
 
-#include "encode_hevc_vdenc_packet_g12.h"
 
 namespace encode
 {
@@ -42,14 +41,6 @@ namespace encode
 
 
         virtual ~TestHevcVdencPktG12() {};
-
-        //!
-        //! \brief     Test  Prepare
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS PrepareTest();
 
         //!
         //! \brief     Test  Submit
@@ -291,8 +282,575 @@ namespace encode
         //!
         MOS_STATUS AllocateResourcesTest();
 
+        //!
+        //! \brief     Test  = hwInterface->GetOsInterface
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS = hwInterface->GetOsInterfaceTest();
+
+        //!
+        //! \brief     Test  = hwInterface->GetMiInterface
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS = hwInterface->GetMiInterfaceTest();
+
+        //!
+        //! \brief     Test  = m_pipeline->GetStatusReportInstance
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS = m_pipeline->GetStatusReportInstanceTest();
+
+        //!
+        //! \brief     Test  = hwInterface->GetHcpInterface
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS = hwInterface->GetHcpInterfaceTest();
+
+        //!
+        //! \brief     Test  = hwInterface->GetVdencInterface
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS = hwInterface->GetVdencInterfaceTest();
+
+        //!
+        //! \brief     Test  = m_pipeline->GetFeatureManager
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS = m_pipeline->GetFeatureManagerTest();
+
+        //!
+        //! \brief     Test  ~HevcVdencPkt
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS ~HevcVdencPktTest();
+
+        //!
+        //! \brief     Test  Init
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS InitTest();
+
+        //!
+        //! \brief     Test  Prepare
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS PrepareTest();
+
+        //!
+        //! \brief     Test  Destory
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS DestoryTest();
+
+        //!
+        //! \brief     Test  Submit
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SubmitTest();
+
+        //!
+        //! \brief     Test  Completed
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS CompletedTest();
+
+        //!
+        //! \brief     Test  CalculatePictureStateCommandSize
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS CalculatePictureStateCommandSizeTest();
+
+        //!
+        //! \brief     Test  GetVdencStateCommandsDataSize
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS GetVdencStateCommandsDataSizeTest();
+
+        //!
+        //! \brief     Test  CalculateCommandSize
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS CalculateCommandSizeTest();
+
+        //!
+        //! \brief     Test  GetPacketName
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS GetPacketNameTest();
+
+        //!
+        //! \brief     Test  GetHxxPrimitiveCommandSize
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS GetHxxPrimitiveCommandSizeTest();
+
+        //!
+        //! \brief     Test  CalculateCommandBufferSize
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS CalculateCommandBufferSizeTest();
+
+        //!
+        //! \brief     Test  CalculatePatchListSize
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS CalculatePatchListSizeTest();
+
+        //!
+        //! \brief     Test  EndStatusReport
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS EndStatusReportTest();
+
+        //!
+        //! \brief     Test  ReadHcpStatus
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS ReadHcpStatusTest();
+
+        //!
+        //! \brief     Test  AllocateResources
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AllocateResourcesTest();
+
+        //!
+        //! \brief     Test  SetPakPassType
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetPakPassTypeTest();
+
+        //!
+        //! \brief     Test  SetHcpSrcSurfaceParams
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetHcpSrcSurfaceParamsTest();
+
+        //!
+        //! \brief     Test  SetHcpReconSurfaceParams
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetHcpReconSurfaceParamsTest();
+
+        //!
+        //! \brief     Test  AddHcpPipeBufAddrCmd
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddHcpPipeBufAddrCmdTest();
+
+        //!
+        //! \brief     Test  AddHcpIndObjBaseAddrCmd
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddHcpIndObjBaseAddrCmdTest();
+
+        //!
+        //! \brief     Test  SetHcpIndObjBaseAddrParams
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetHcpIndObjBaseAddrParamsTest();
+
+        //!
+        //! \brief     Test  AddHcpQmStateCmd
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddHcpQmStateCmdTest();
+
+        //!
+        //! \brief     Test  SetHcpQmStateParams
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetHcpQmStateParamsTest();
+
+        //!
+        //! \brief     Test  SetVdencSurfaceStateParams
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetVdencSurfaceStateParamsTest();
+
+        //!
+        //! \brief     Test  SetVdencDSSurfaceStateParams
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetVdencDSSurfaceStateParamsTest();
+
+        //!
+        //! \brief     Test  AddPicStateWithNoTile
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddPicStateWithNoTileTest();
+
+        //!
+        //! \brief     Test  SendHwSliceEncodeCommand
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SendHwSliceEncodeCommandTest();
+
+        //!
+        //! \brief     Test  SetVdencDsRefSurfaceStateParams
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetVdencDsRefSurfaceStateParamsTest();
+
+        //!
+        //! \brief     Test  VdencPipeModeSelect
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS VdencPipeModeSelectTest();
+
+        //!
+        //! \brief     Test  SetVdencSurfaces
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetVdencSurfacesTest();
+
+        //!
+        //! \brief     Test  AddVdencPipeBufAddrCmd
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddVdencPipeBufAddrCmdTest();
+
+        //!
+        //! \brief     Test  ReadSliceSizeForSinglePipe
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS ReadSliceSizeForSinglePipeTest();
+
+        //!
+        //! \brief     Test  ReadSliceSize
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS ReadSliceSizeTest();
+
+        //!
+        //! \brief     Test  CopyDataBlock
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS CopyDataBlockTest();
+
+        //!
+        //! \brief     Test  WaitHevcDone
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS WaitHevcDoneTest();
+
+        //!
+        //! \brief     Test  WaitVdencDone
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS WaitVdencDoneTest();
+
+        //!
+        //! \brief     Test  WaitHevcVdencDone
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS WaitHevcVdencDoneTest();
+
+        //!
+        //! \brief     Test  SetHcpPipeModeSelectParams
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetHcpPipeModeSelectParamsTest();
+
+        //!
+        //! \brief     Test  AddHcpPipeModeSelect
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddHcpPipeModeSelectTest();
+
+        //!
+        //! \brief     Test  AddHcpSurfaces
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddHcpSurfacesTest();
+
+        //!
+        //! \brief     Test  SetHcpPipeBufAddrParams
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetHcpPipeBufAddrParamsTest();
+
+        //!
+        //! \brief     Test  SetVdencPipeModeSelectParams
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetVdencPipeModeSelectParamsTest();
+
+        //!
+        //! \brief     Test  SetVdencPipeBufAddrParams
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetVdencPipeBufAddrParamsTest();
+
+        //!
+        //! \brief     Test  SetHcpPicStateParams
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetHcpPicStateParamsTest();
+
+        //!
+        //! \brief     Test  AddHcpWeightOffsetStateCmd
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddHcpWeightOffsetStateCmdTest();
+
+        //!
+        //! \brief     Test  AddHcpHevcVp9RdoqStateCmd
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddHcpHevcVp9RdoqStateCmdTest();
+
+        //!
+        //! \brief     Test  AddHcpPakInsertSliceHeader
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddHcpPakInsertSliceHeaderTest();
+
+        //!
+        //! \brief     Test  AddVdencWeightOffsetStateCmd
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddVdencWeightOffsetStateCmdTest();
+
+        //!
+        //! \brief     Test  AddVdencWalkerStateCmd
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddVdencWalkerStateCmdTest();
+
+        //!
+        //! \brief     Test  ValidateVdboxIdx
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS ValidateVdboxIdxTest();
+
+        //!
+        //! \brief     Test  SetPerfTag
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetPerfTagTest();
+
+        //!
+        //! \brief     Test  SetHcpSliceStateParams
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetHcpSliceStateParamsTest();
+
+        //!
+        //! \brief     Test  SetSemaphoreMem
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetSemaphoreMemTest();
+
+        //!
+        //! \brief     Test  SendPrologCmds
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SendPrologCmdsTest();
+
+        //!
+        //! \brief     Test  AllocateBatchBufferForPakSlices
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AllocateBatchBufferForPakSlicesTest();
+
+        //!
+        //! \brief     Test  SetBatchBufferForPakSlices
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetBatchBufferForPakSlicesTest();
+
+        //!
+        //! \brief     Test  ReadSseStatistics
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS ReadSseStatisticsTest();
+
+        //!
+        //! \brief     Test  AddForceWakeup
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddForceWakeupTest();
+
+        //!
+        //! \brief     Test  AddHcpPakInsertNALUs
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddHcpPakInsertNALUsTest();
+
+        //!
+        //! \brief     Test  AddHcpRefIdxCmd
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS AddHcpRefIdxCmdTest();
+
+        //!
+        //! \brief     Test  CalculatePSNR
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS CalculatePSNRTest();
+
+        //!
+        //! \brief     Test  SetRowstoreCachingOffsets
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS SetRowstoreCachingOffsetsTest();
+
+        //!
+        //! \brief     Test  FreeResources
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS FreeResourcesTest();
+
+        //!
+        //! \brief     Test  DumpResources
+        //!
+        //! \return    MOS_STATUS
+        //!            MOS_STATUS_SUCCESS if success, else fail reason
+        //!
+        MOS_STATUS DumpResourcesTest();
+
     private:
-        HevcVdencPipelineG12 *m_hevcVdencPipelineG12;
 
     };
 }

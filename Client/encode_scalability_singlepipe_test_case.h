@@ -23,25 +23,54 @@ express and approved by Intel in writing.
 ======================= end_copyright_notice ==================================*/
 
 //!
-//! \file     mock_hevc_vdenc_pipeline_g12.h
-//! \brief    header file of HevcVdencPipelineG12Mock class
+//! \file     encode_scalability_singlepipe_test_case.h
+//! \brief    header file of EncodeScalabilitySinglePipeTestCase class
 //! \details
 //!
 
-#ifndef __MOCK_HEVC_VDENC_PIPELINE_G12_H__
-#define __MOCK_HEVC_VDENC_PIPELINE_G12_H__
+#ifndef __ENCODE_SCALABILITY_SINGLEPIPE_TEST_CASE_H__
+#define __ENCODE_SCALABILITY_SINGLEPIPE_TEST_CASE_H__
 
+#include "memory_leak_detector.h"
+#include "mock_platform.h"
+#include "encode_test_fixture.h"
+#include "test_encode_scalability_singlepipe.h"
 
-namespace encode 
+namespace encode
 {
-    class HevcVdencPipelineG12Mock : public HevcVdencPipelineG12
+    class EncodeScalabilitySinglePipeTestCase : public EncodeTestFixture
     {
-        public:
 
-            void set_m_brcHistoryBufSize(uint32_t m_brcHistoryBufSize);
+    protected:
 
-        protected:
 
-            uint32_t m_brcHistoryBufSize = 0;
-    }
+        //!
+        //! \brief   Initialization work before executing a unit test
+        //!
+        virtual void SetUp();
+
+        //!
+        //! \brief   Uninitializaiton and exception handling after the unit test done
+        //!
+        virtual void TearDown();
+
+        //!
+        //! \brief   Get Platform
+        //! \param   [in] platform
+        //! \        Reference to PLATFORM
+        //!
+        void GetPlatformByName(PLATFORM &platform);
+
+        //!
+        //! \brief   Prepare Encode Params
+        //! \param   [in] encodeParams
+        //! \        Reference to EncodeParams
+        //!
+        void PrepareEncodeParams(EncoderParams &encodeParams);
+
+        TestEncodeScalabilitySinglePipe        *m_packet = nullptr;
+
+    };
 }
+
+#endif
