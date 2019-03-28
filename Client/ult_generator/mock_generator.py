@@ -1,4 +1,5 @@
-from generator import Generator
+from ult_generator.generator import Generator
+from ult_generator.header_parser import HeaderParser
 
 
 class MockGenerator(Generator):
@@ -12,14 +13,17 @@ class MockGenerator(Generator):
         :param info:
         """
         Generator.__init__(self)
-        self.info = info
-        self.mock_filename_h = 'mock_' + info['file_name'] + '.h'
-        self.mock_filename_cpp = 'mock_' + info['file_name'] + '.cpp'
-        self.mock_class_name = info['class_name'] + 'Mock'
-        self.includes_h = []
-        self.includes_cpp = []
-        self.lines_h = []
-        self.lines_cpp = []
+        if isinstance(info, HeaderParser):
+            self.info = info
+            self.mock_filename_h = 'mock_' + self.info.name
+            self.mock_filename_cpp = 'mock_' + self.info.name[:-2] + '.cpp'
+            self.mock_class_name = self.info.class_name + 'Mock'
+            self.includes_h = []
+            self.includes_cpp = []
+            self.lines_h = []
+            self.lines_cpp = []
+        else:
+            print('Use HeadParser Class to initialize!')
 
     def add_body_h(self, lines, info):
         """
@@ -28,16 +32,16 @@ class MockGenerator(Generator):
         :param info:
         :return:
         """
-        lines.append('namespace ' + info['namespace'] + '\n')
+        lines.append('namespace ' + info.namespace + '\n')
         lines.append('{\n')
-        lines.append('    class ' + self.mock_class_name + ' : public ' + info['class_name'] + '\n')
+        lines.append('    class ' + self.mock_class_name + ' : public ' + info.class_name + '\n')
         lines.append('    {\n')
         lines.append('        public:\n\n')
-        for var in info['var']:
+        for var in info.vars:
             lines.append('            void set_' + var['name'] + '(' + var['type'] + ' ' + var['name'] + ');\n')
         lines.append('\n')
         lines.append('        protected:\n\n')
-        for var in info['var']:
+        for var in info.vars:
             lines.append('            ' + var['type'] + ' ' + var['name'] + ' = 0;\n')
         lines.append('    }\n')
         lines.append('}\n')
@@ -49,9 +53,9 @@ class MockGenerator(Generator):
         :param info:
         :return:
         """
-        lines.append('namespace ' + info['namespace'] + '\n')
+        lines.append('namespace ' + info.namespace + '\n')
         lines.append('{\n')
-        for var in info['var']:
+        for var in info.vars:
             lines.append('        void ' + self.mock_class_name + '::set_' + var['name'] + '(' + var['type'] + ' ' + var['name'] + '_mock)\n')
             lines.append('        {\n')
             lines.append('            ' + var['name'] + ' = ' + var['name'] + '_mock' + ';\n')

@@ -8,6 +8,7 @@ class Generator(object):
 
         """
         self.file_header = 'sample_header.txt'
+        self.basic_type = {'int', 'bool', 'dword', 'uint8_t', 'uint16_t', 'uint32_t', 'uint64_t', 'char'}
 
     @staticmethod
     def write_file(filename, lines):
@@ -59,6 +60,10 @@ class Generator(object):
         for h_file in includes:
             lines.append('#include \"' + h_file + '\"\n')
         lines.append('\n')
+
+    @staticmethod
+    def add_method_annotation(lines, method_name):
+        pass
 
     def add_body_h(self, lines, info):
         """
