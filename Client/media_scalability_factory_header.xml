@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf8"?>
+<media_scalability_factory.h>
+  <test_media_scalability_factory.h>
+  </test_media_scalability_factory.h>
+  <media_scalability_factory_test_case.h>
+    <Header file="memory_leak_detector.h"/>
+    <Header file="mock_platform.h"/>
+    <Header file="encode_test_fixture.h"/>
+    <Header file="test_media_scalability_factory.h"/>
+    <Source file="media_scalability_factory_test_case.h"/>
+  </media_scalability_factory_test_case.h>
+  <mock_media_scalability_factory.h>
+    <Header file=""/>
+    <Source file=""/>
+  </mock_media_scalability_factory.h>
+</media_scalability_factory.h>

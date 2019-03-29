@@ -32,7 +32,7 @@ def finddir(startdir, target, root_path):
         #print(new_dir)
         if new_dir == target:
             result = os.getcwd() + os.sep + new_dir
-            print(result)
+            #print(result)
             #os.chdir(root_path)
             return result
         if os.path.isdir(new_dir):
@@ -44,7 +44,7 @@ def finddir(startdir, target, root_path):
 
 
 def find_super_class_file(class_name, includes, media_path):
-    print(includes)
+    #print(includes)
     t1 = class_name.lower()
     t1 = t1.replace('pkt', 'packet')
     file_name = ''
@@ -56,7 +56,7 @@ def find_super_class_file(class_name, includes, media_path):
             file_name = i
             break
     if file_name:
-        print(file_name)
+        #print(file_name)
         return finddir(media_path, file_name, os.getcwd())
     else:
         return None
@@ -72,17 +72,23 @@ def main(input_file='input.txt', media_path='../../../Source/media/media_embargo
     with open(input_file, 'r') as fin:
         for line in fin:
             line = line.strip()
+            if not line:
+                continue
             idx = line.rfind('/')
             file_name = line[idx+1:]
             file_path = line[:idx+1]
             parser_list = [header_parser.HeaderParser(file_name, file_path)]
-            print(os.getcwd())
+            # print(os.getcwd())
             parser_list[0].read_file()
             parser_list[0].parse_file_info()
             # parser_list[0].print_info()
             while True:
                 root_path = os.getcwd()
+                if not parser_list[-1].super_class:
+                    break
+                print(parser_list[-1].super_class)
                 s = find_super_class_file(parser_list[-1].super_class, parser_list[-1].includes, media_path)
+                print(s)
                 os.chdir(root_path)
                 if s:
                     idx = s.rfind('/')
@@ -93,8 +99,21 @@ def main(input_file='input.txt', media_path='../../../Source/media/media_embargo
                     parser_list[-1].parse_file_info()
                 else:
                     break
+            print('------------------------')
             for i in parser_list[1:]:
-                parser_list[0].methods_info.extend(i.methods_info)
+                # print(i.name)
+                # print(i.methods_info)
+                for m in i.methods_info:
+                    f_override = False
+                    if m['method_name'].startswith('~'):
+                        continue
+                    for j in parser_list[0].methods_info:
+                        if m['method_name'] == j['method_name']:
+                            f_override = True
+                            break
+                    if not f_override:
+                        parser_list[0].methods_info.append(m)
+                # parser_list[0].methods_info.extend(i.methods_info)
             test = test_generator.TestGenerator(parser_list[0])
             test_case = test_case_generator.TestCaseGenerator(parser_list[0])
             xml_filename = parser_list[0].name[:-2] + '_header.xml'

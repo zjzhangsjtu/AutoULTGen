@@ -1,4 +1,4 @@
-encode_scalability_singlepipe.h/*===================== begin_copyright_notice ==================================
+/*===================== begin_copyright_notice ==================================
 
 INTEL CONFIDENTIAL
 Copyright 2018
@@ -46,22 +46,7 @@ namespace encode
 
         virtual ~TestEncodeScalabilitySinglePipe() {};
 
-        //!
-        //! \brief     Test  ~EncodeScalabilitySinglePipe
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS ~EncodeScalabilitySinglePipeTest();
-
-        //!
-        //! \brief     Test  operator=
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS operator=Test();
-
+        TestEncodeScalabilitySinglePipe(void *hwInterface, MediaContext *mediaContext, uint8_t componentType) : EncodeScalabilitySinglePipe(hwInterface, mediaContext, componentType){};
         //!
         //! \brief     Test  Initialize
         //!
@@ -111,30 +96,6 @@ namespace encode
         MOS_STATUS SendAttrWithFrameTrackingTest();
 
         //!
-        //! \brief     Test  ~MediaScalabilitySinglePipe
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS ~MediaScalabilitySinglePipeTest();
-
-        //!
-        //! \brief     Test  operator=
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS operator=Test();
-
-        //!
-        //! \brief     Test  Initialize
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS InitializeTest();
-
-        //!
         //! \brief     Test  GetGpuCtxCreationOption
         //!
         //! \return    MOS_STATUS
@@ -149,22 +110,6 @@ namespace encode
         //!            MOS_STATUS_SUCCESS if success, else fail reason
         //!
         MOS_STATUS DestroyTest();
-
-        //!
-        //! \brief     Test  UpdateState
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS UpdateStateTest();
-
-        //!
-        //! \brief     Test  VerifyCmdBuffer
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS VerifyCmdBufferTest();
 
         //!
         //! \brief     Test  GetCmdBuffer
@@ -223,30 +168,6 @@ namespace encode
         MOS_STATUS PopulateHintParamsTest();
 
         //!
-        //! \brief     Test  VerifySpaceAvailable
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS VerifySpaceAvailableTest();
-
-        //!
-        //! \brief     Test  ResizeCommandBufferAndPatchList
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS ResizeCommandBufferAndPatchListTest();
-
-        //!
-        //! \brief     Test  operator=
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS operator=Test();
-
-        //!
         //! \brief     Test  IsScalabilityModeMatched
         //!
         //! \return    MOS_STATUS
@@ -263,54 +184,6 @@ namespace encode
         MOS_STATUS IsGpuCtxCreateOptionMatchedTest();
 
         //!
-        //! \brief     Test  Initialize
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS InitializeTest();
-
-        //!
-        //! \brief     Test  GetGpuCtxCreationOption
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS GetGpuCtxCreationOptionTest();
-
-        //!
-        //! \brief     Test  Destroy
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS DestroyTest();
-
-        //!
-        //! \brief     Test  UpdateState
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS UpdateStateTest();
-
-        //!
-        //! \brief     Test  VerifyCmdBuffer
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS VerifyCmdBufferTest();
-
-        //!
-        //! \brief     Test  GetCmdBuffer
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS GetCmdBufferTest();
-
-        //!
         //! \brief     Test  GetQueue
         //!
         //! \return    MOS_STATUS
@@ -319,52 +192,12 @@ namespace encode
         MOS_STATUS GetQueueTest();
 
         //!
-        //! \brief     Test  ReturnCmdBuffer
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS ReturnCmdBufferTest();
-
-        //!
-        //! \brief     Test  SubmitCmdBuffer
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS SubmitCmdBufferTest();
-
-        //!
-        //! \brief     Test  SyncPipe
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS SyncPipeTest();
-
-        //!
-        //! \brief     Test  ResetSemaphore
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS ResetSemaphoreTest();
-
-        //!
         //! \brief     Test  GetPipeNumber
         //!
         //! \return    MOS_STATUS
         //!            MOS_STATUS_SUCCESS if success, else fail reason
         //!
         MOS_STATUS GetPipeNumberTest();
-
-        //!
-        //! \brief     Test  SendAttrWithFrameTracking
-        //!
-        //! \return    MOS_STATUS
-        //!            MOS_STATUS_SUCCESS if success, else fail reason
-        //!
-        MOS_STATUS SendAttrWithFrameTrackingTest();
 
         //!
         //! \brief     Test  IsFrameTrackingEnabled
