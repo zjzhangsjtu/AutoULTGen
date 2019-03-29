@@ -21,7 +21,7 @@ class HeaderParser(object):
         self.namespace = ''
         self.super_class = ''
         self.basic_type = {'int', 'bool', 'dword', 'uint8_t', 'uint16_t', 'uint32_t', 'uint64_t', 'char'}
-        self.keywords = {'static', 'constexpr', 'const', 'unsigned'}
+        self.keywords = {'static', 'constexpr', 'const', 'unsigned', '*', '&'}
         self.vars = []
 
     def print_info(self):
@@ -71,6 +71,10 @@ class HeaderParser(object):
             class_name = line[idx1:idx2].strip()
             idx2 = line.find('public') + 7
             super_class = line[idx2:].strip()
+            idx3 = super_class.find(',')
+            if idx3 != -1:
+                super_class = super_class[:idx3]
+
         return class_name, super_class
 
     def parse_method_info(self, lines):
@@ -104,8 +108,9 @@ class HeaderParser(object):
         for i in paras:
             tmp = i.strip().split(' ')
             tmp = [i for i in tmp if i != '']
-            # if len(tmp) > 2 and tmp[0] == 'const':
-            #     tmp = tmp[1:]
+            for t in range(len(tmp)):
+                if (tmp[t] == '*' or tmp[t] == '&') and tmp[t+1]:
+                    tmp[t+1] = tmp[t] + tmp[t+1]
             tmp = list(filter(lambda x: x not in self.keywords, tmp))
             if len(tmp) == 2:
                 if tmp[0][-1] == '&':
@@ -116,6 +121,9 @@ class HeaderParser(object):
                     para['type'] = para['type'][:-1]
                     para['name'] = '*' + para['name']
                 method_info['parameters'].append(para)
+        if method_info['method_name'].startswith('*'):
+            method_info['method_name'] = method_info['method_name'][1:]
+            method_info['return_type'] = method_info['return_type'] + '*'
         return method_info
 
     def parse_file_info(self):
@@ -179,7 +187,7 @@ class HeaderParser(object):
             if line_clr.startswith('private:'):
                 method_type = 'private'
                 continue
-            if line_clr.find('(') != -1:
+            if line_clr.find('(') != -1 and line_clr.find('=') == -1:
                 self.methods.append([line])
                 if not(line_clr[-1] == ';' or line_clr[-1] == '}'):
                     f_method = True

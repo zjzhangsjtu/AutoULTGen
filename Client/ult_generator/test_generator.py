@@ -18,8 +18,8 @@ class TestGenerator(Generator):
             self.test_filename_h = 'test_' + self.info.name
             self.test_filename_cpp = 'test_' + self.info.name[:-2] + '.cpp'
             self.test_class_name = 'Test' + self.info.class_name
-            self.lines_h = [self.info.name]
-            self.lines_cpp = [self.test_filename_h]
+            self.lines_h = []
+            self.lines_cpp = []
             self.includes_h = []
             self.includes_cpp = []
         else:
@@ -51,7 +51,25 @@ class TestGenerator(Generator):
         lines.append('\n')
 
         for i in info.methods_info:
-            if i['method_name']:
+            if i['return_type'] == 'Constructor' and not i['method_name'].startswith('~'):
+                s = '        ' + self.test_class_name + '('
+                for p in i['parameters']:
+                    s = s + p['type'] + ' ' + p['name'] + ', '
+                if s.endswith(', '):
+                    s = s[:-2]
+                s = s + ') : ' + info.class_name + '('
+                for p in i['parameters']:
+                    name = p['name']
+                    if name.startswith('*'):
+                        name = name[1:]
+                    s = s + name + ', '
+                if s.endswith(', '):
+                    s = s[:-2]
+                s = s + '){};\n'
+                lines.append(s)
+
+        for i in info.methods_info:
+            if i['method_name'] and i['return_type'] != 'Constructor':
                 self.add_method_annotation(lines, i['method_name'])
                 line = '        MOS_STATUS ' + i['method_name'] + 'Test();\n'
                 lines.append(line)
@@ -77,7 +95,7 @@ class TestGenerator(Generator):
         """
         self.add_file_header(self.lines_h)
         self.add_brief_intro_h(self.lines_h, self.test_filename_h, self.test_class_name)
-        print(self.includes_h)
+        # print(self.includes_h)
         self.add_includes_h(self.lines_h, self.test_filename_h[:-2], self.includes_h)
         self.add_body_h(self.lines_h, self.info)
         self.write_file(self.test_filename_h, self.lines_h)
@@ -90,10 +108,16 @@ class TestGenerator(Generator):
         :param p_type:
         :return:
         """
+        if name.startswith('&'):
+            name = name[1:]
         if p_type in self.basic_type:
             lines.append('            ' + p_type + ' ' + name + ' = 0;\n')
+        elif p_type == 'void':
+            lines.append('            ' + p_type + ' ' + name + ' = nullptr;\n')
         else:
             lines.append('            ' + p_type + ' ' + name + ';\n')
+            if name.startswith('*'):
+                name = name[1:]
             lines.append('            memset(&' + name + ', 0, sizeof(' + name + '));\n')
         return lines
 
@@ -106,33 +130,34 @@ class TestGenerator(Generator):
         :param info:
         :return:
         """
-        if method_info['method_name'] == '':
+        if method_info['method_name'] == '' or method_info['return_type'] == 'Constructor':
             return
         lines.append('        MOS_STATUS ' + class_name + '::' + method_info['method_name'] + 'Test()\n')
         lines.append('        {\n')
         for p in method_info['parameters']:
             name = p['name']
             type = p['type']
-            if name.startswith('&'):
-                name = name[1:]
+            # if name.startswith('&') or name.startswith('*'):
+            #     name = name[1:]
             self.add_arg_init(lines, name, type)
             lines.append('\n')
 
-        s = '            EXPECT_EQ(' + class_name + '::' + method_info['method_name'] + '('
-        for p in method_info['parameters']:
-            name = p['name']
-            if name.startswith('&'):
-                name = name[1:]
-            s = s + name + ', '
-        if s[-2:] == ', ':
-            s = s[0:-2]
-        if method_info['return_type'] != 'void':
-            if method_info['return_type'] == 'MOS_STATUS':
-                expect_return_type = 'MOS_STATUS_SUCCESS'
-            else:
-                expect_return_type = '0'
-            s = s + '), ' + expect_return_type + ');\n'
-            lines.append(s)
+        if method_info['return_type'] == 'MOS_STATUS' or method_info['return_type'] in self.basic_type:
+            s = '            EXPECT_EQ(' + info.class_name + '::' + method_info['method_name'] + '('
+            for p in method_info['parameters']:
+                name = p['name']
+                if name.startswith('&') or name.startswith('*'):
+                    name = name[1:]
+                s = s + name + ', '
+            if s[-2:] == ', ':
+                s = s[0:-2]
+            if method_info['return_type'] != 'void':
+                if method_info['return_type'] == 'MOS_STATUS':
+                    expect_return_type = 'MOS_STATUS_SUCCESS'
+                elif method_info['return_type'] in self.basic_type:
+                    expect_return_type = '0'
+                s = s + '), ' + expect_return_type + ');\n'
+                lines.append(s)
         lines.append('\n')
         lines.append('            return MOS_STATUS_SUCCESS;\n')
         lines.append('        }\n')
@@ -158,7 +183,7 @@ class TestGenerator(Generator):
         """
         self.add_file_header(self.lines_cpp)
         self.add_brief_intro_cpp(self.lines_cpp, self.test_filename_cpp, self.test_class_name)
-        print(self.includes_cpp)
+        # print(self.includes_cpp)
         self.add_includes_cpp(self.lines_cpp, self.includes_cpp)
         self.add_body_cpp(self.lines_cpp, self.info)
         self.write_file(self.test_filename_cpp, self.lines_cpp)

@@ -56,14 +56,6 @@ namespace encode
     }
 
 
-    TEST_F(EncodeScalabilitySinglePipeTestCase, operator=)
-    {
-        EXPECT_EQ(m_packet->operator=Test(), MOS_STATUS_SUCCESS);
-    }
-    TEST_F(EncodeScalabilitySinglePipeTestCase, operator=)
-    {
-        EXPECT_EQ(m_packet->operator=Test(), MOS_STATUS_SUCCESS);
-    }
     TEST_F(EncodeScalabilitySinglePipeTestCase, SetHintParams)
     {
         EXPECT_EQ(m_packet->SetHintParamsTest(), MOS_STATUS_SUCCESS);
@@ -71,10 +63,6 @@ namespace encode
     TEST_F(EncodeScalabilitySinglePipeTestCase, PopulateHintParams)
     {
         EXPECT_EQ(m_packet->PopulateHintParamsTest(), MOS_STATUS_SUCCESS);
-    }
-    TEST_F(EncodeScalabilitySinglePipeTestCase, operator=)
-    {
-        EXPECT_EQ(m_packet->operator=Test(), MOS_STATUS_SUCCESS);
     }
     TEST_F(EncodeScalabilitySinglePipeTestCase, IsScalabilityModeMatched)
     {

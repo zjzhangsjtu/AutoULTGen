@@ -29,6 +29,11 @@ express and approved by Intel in writing.
 //!
 
 #include "encode_hevc_vdenc_packet_g12_test_case.h"
+#include "codechal_debug_ext.h"
+#include "media_cmd_task.h"
+#include "encode_hevc_vdenc_ult_test_data.h"
+#include "codechal_setting_ext.h"
+#include "codec_test_environment.h"
 
 namespace encode
 {
@@ -143,30 +148,6 @@ namespace encode
     TEST_F(HevcVdencPktG12TestCase, Construct3rdLevelBatch)
     {
         EXPECT_EQ(m_packet->Construct3rdLevelBatchTest(), MOS_STATUS_SUCCESS);
-    }
-    TEST_F(HevcVdencPktG12TestCase, = hwInterface->GetOsInterface)
-    {
-        EXPECT_EQ(m_packet->= hwInterface->GetOsInterfaceTest(), MOS_STATUS_SUCCESS);
-    }
-    TEST_F(HevcVdencPktG12TestCase, = hwInterface->GetMiInterface)
-    {
-        EXPECT_EQ(m_packet->= hwInterface->GetMiInterfaceTest(), MOS_STATUS_SUCCESS);
-    }
-    TEST_F(HevcVdencPktG12TestCase, = m_pipeline->GetStatusReportInstance)
-    {
-        EXPECT_EQ(m_packet->= m_pipeline->GetStatusReportInstanceTest(), MOS_STATUS_SUCCESS);
-    }
-    TEST_F(HevcVdencPktG12TestCase, = hwInterface->GetHcpInterface)
-    {
-        EXPECT_EQ(m_packet->= hwInterface->GetHcpInterfaceTest(), MOS_STATUS_SUCCESS);
-    }
-    TEST_F(HevcVdencPktG12TestCase, = hwInterface->GetVdencInterface)
-    {
-        EXPECT_EQ(m_packet->= hwInterface->GetVdencInterfaceTest(), MOS_STATUS_SUCCESS);
-    }
-    TEST_F(HevcVdencPktG12TestCase, = m_pipeline->GetFeatureManager)
-    {
-        EXPECT_EQ(m_packet->= m_pipeline->GetFeatureManagerTest(), MOS_STATUS_SUCCESS);
     }
     TEST_F(HevcVdencPktG12TestCase, CalculateCommandSize)
     {
@@ -299,5 +280,13 @@ namespace encode
     TEST_F(HevcVdencPktG12TestCase, DumpResources)
     {
         EXPECT_EQ(m_packet->DumpResourcesTest(), MOS_STATUS_SUCCESS);
+    }
+    TEST_F(HevcVdencPktG12TestCase, GetActiveTask)
+    {
+        EXPECT_EQ(m_packet->GetActiveTaskTest(), MOS_STATUS_SUCCESS);
+    }
+    TEST_F(HevcVdencPktG12TestCase, StartStatusReport)
+    {
+        EXPECT_EQ(m_packet->StartStatusReportTest(), MOS_STATUS_SUCCESS);
     }
 }

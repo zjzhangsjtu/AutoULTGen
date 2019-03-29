@@ -1,4 +1,4 @@
-test_encode_scalability_singlepipe.h/*===================== begin_copyright_notice ==================================
+/*===================== begin_copyright_notice ==================================
 
 INTEL CONFIDENTIAL
 Copyright 2018
@@ -32,36 +32,21 @@ express and approved by Intel in writing.
 
 namespace encode
 {
-        MOS_STATUS TestEncodeScalabilitySinglePipe::~EncodeScalabilitySinglePipeTest()
-        {
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::~EncodeScalabilitySinglePipe(), 0);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::operator=Test()
-        {
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::operator=(), 0);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
         MOS_STATUS TestEncodeScalabilitySinglePipe::InitializeTest()
         {
             MediaScalabilityOption option;
             memset(&option, 0, sizeof(option));
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::Initialize(option), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::Initialize(option), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
 
         MOS_STATUS TestEncodeScalabilitySinglePipe::UpdateStateTest()
         {
-            void *statePars;
-            memset(&*statePars, 0, sizeof(*statePars));
+            void *statePars = nullptr;
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::UpdateState(*statePars), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::UpdateState(statePars), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -74,7 +59,7 @@ namespace encode
 
             bool singleTaskPhaseSupportedInPak = 0;
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::VerifyCmdBuffer(requestedSize, requestedPatchListSize, singleTaskPhaseSupportedInPak), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::VerifyCmdBuffer(requestedSize, requestedPatchListSize, singleTaskPhaseSupportedInPak), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -87,7 +72,7 @@ namespace encode
 
             bool singleTaskPhaseSupportedInPak = 0;
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::VerifySpaceAvailable(requestedSize, requestedPatchListSize, singleTaskPhaseSupportedInPak), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::VerifySpaceAvailable(requestedSize, requestedPatchListSize, singleTaskPhaseSupportedInPak), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -98,7 +83,7 @@ namespace encode
 
             uint32_t requestedPatchListSize = 0;
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::ResizeCommandBufferAndPatchList(requestedCommandBufferSize, requestedPatchListSize), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::ResizeCommandBufferAndPatchList(requestedCommandBufferSize, requestedPatchListSize), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -110,31 +95,7 @@ namespace encode
 
             bool frameTrackingRequested = 0;
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::SendAttrWithFrameTracking(cmdBuffer, frameTrackingRequested), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::~MediaScalabilitySinglePipeTest()
-        {
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::~MediaScalabilitySinglePipe(), 0);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::operator=Test()
-        {
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::operator=(), 0);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::InitializeTest()
-        {
-            MediaScalabilityOption option;
-            memset(&option, 0, sizeof(option));
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::Initialize(option), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::SendAttrWithFrameTracking(cmdBuffer, frameTrackingRequested), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -142,39 +103,16 @@ namespace encode
         MOS_STATUS TestEncodeScalabilitySinglePipe::GetGpuCtxCreationOptionTest()
         {
             MOS_GPUCTX_CREATOPTIONS *gpuCtxCreateOption;
-            memset(&*gpuCtxCreateOption, 0, sizeof(*gpuCtxCreateOption));
+            memset(&gpuCtxCreateOption, 0, sizeof(gpuCtxCreateOption));
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::GetGpuCtxCreationOption(*gpuCtxCreateOption), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::GetGpuCtxCreationOption(gpuCtxCreateOption), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
 
         MOS_STATUS TestEncodeScalabilitySinglePipe::DestroyTest()
         {
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::Destroy(), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::UpdateStateTest()
-        {
-            void *statePars;
-            memset(&*statePars, 0, sizeof(*statePars));
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::UpdateState(*statePars), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::VerifyCmdBufferTest()
-        {
-            uint32_t requestedSize = 0;
-
-            uint32_t requestedPatchListSize = 0;
-
-            bool singleTaskPhaseSupportedInPak = 0;
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::VerifyCmdBuffer(requestedSize, requestedPatchListSize, singleTaskPhaseSupportedInPak), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::Destroy(), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -184,7 +122,7 @@ namespace encode
             PMOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::GetCmdBuffer(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::GetCmdBuffer(cmdBuffer), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -194,7 +132,7 @@ namespace encode
             PMOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::ReturnCmdBuffer(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::ReturnCmdBuffer(cmdBuffer), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -204,7 +142,7 @@ namespace encode
             PMOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::SubmitCmdBuffer(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::SubmitCmdBuffer(cmdBuffer), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -218,7 +156,7 @@ namespace encode
             PMOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::SyncPipe(syncType, semaphoreId, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::SyncPipe(syncType, semaphoreId, cmdBuffer), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -232,14 +170,14 @@ namespace encode
             PMOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::ResetSemaphore(syncType, semaphoreId, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::ResetSemaphore(syncType, semaphoreId, cmdBuffer), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
 
         MOS_STATUS TestEncodeScalabilitySinglePipe::SetHintParamsTest()
         {
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::SetHintParams(), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::SetHintParams(), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -249,38 +187,7 @@ namespace encode
             PMOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::PopulateHintParams(cmdBuffer), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::VerifySpaceAvailableTest()
-        {
-            uint32_t requestedSize = 0;
-
-            uint32_t requestedPatchListSize = 0;
-
-            bool singleTaskPhaseSupportedInPak = 0;
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::VerifySpaceAvailable(requestedSize, requestedPatchListSize, singleTaskPhaseSupportedInPak), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::ResizeCommandBufferAndPatchListTest()
-        {
-            uint32_t requestedCommandBufferSize = 0;
-
-            uint32_t requestedPatchListSize = 0;
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::ResizeCommandBufferAndPatchList(requestedCommandBufferSize, requestedPatchListSize), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::operator=Test()
-        {
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::operator=(), 0);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::PopulateHintParams(cmdBuffer), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -288,9 +195,9 @@ namespace encode
         MOS_STATUS TestEncodeScalabilitySinglePipe::IsScalabilityModeMatchedTest()
         {
             ScalabilityPars *params;
-            memset(&*params, 0, sizeof(*params));
+            memset(&params, 0, sizeof(params));
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::IsScalabilityModeMatched(*params), 0);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::IsScalabilityModeMatched(params), 0);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -303,67 +210,7 @@ namespace encode
             PMOS_GPUCTX_CREATOPTIONS_ENHANCED gpuCtxCreateOption2;
             memset(&gpuCtxCreateOption2, 0, sizeof(gpuCtxCreateOption2));
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::IsGpuCtxCreateOptionMatched(gpuCtxCreateOption1, gpuCtxCreateOption2), 0);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::InitializeTest()
-        {
-            MediaScalabilityOption option;
-            memset(&option, 0, sizeof(option));
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::Initialize(option), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::GetGpuCtxCreationOptionTest()
-        {
-            MOS_GPUCTX_CREATOPTIONS *gpuCtxCreateOption;
-            memset(&*gpuCtxCreateOption, 0, sizeof(*gpuCtxCreateOption));
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::GetGpuCtxCreationOption(*gpuCtxCreateOption), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::DestroyTest()
-        {
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::Destroy(), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::UpdateStateTest()
-        {
-            void *statePars;
-            memset(&*statePars, 0, sizeof(*statePars));
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::UpdateState(*statePars), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::VerifyCmdBufferTest()
-        {
-            uint32_t requestedSize = 0;
-
-            uint32_t requestedPatchListSize = 0;
-
-            bool singleTaskPhaseSupportedInPak = 0;
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::VerifyCmdBuffer(requestedSize, requestedPatchListSize, singleTaskPhaseSupportedInPak), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::GetCmdBufferTest()
-        {
-            PMOS_COMMAND_BUFFER cmdBuffer;
-            memset(&cmdBuffer, 0, sizeof(cmdBuffer));
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::GetCmdBuffer(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::IsGpuCtxCreateOptionMatched(gpuCtxCreateOption1, gpuCtxCreateOption2), 0);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -372,81 +219,24 @@ namespace encode
         {
             bool newQueue = 0;
 
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::GetQueue(newQueue), MOS_STATUS_SUCCESS);
+            CmQueue *&queue;
+            memset(&&queue, 0, sizeof(&queue));
 
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::ReturnCmdBufferTest()
-        {
-            PMOS_COMMAND_BUFFER cmdBuffer;
-            memset(&cmdBuffer, 0, sizeof(cmdBuffer));
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::ReturnCmdBuffer(cmdBuffer), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::SubmitCmdBufferTest()
-        {
-            PMOS_COMMAND_BUFFER cmdBuffer;
-            memset(&cmdBuffer, 0, sizeof(cmdBuffer));
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::SubmitCmdBuffer(cmdBuffer), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::SyncPipeTest()
-        {
-            uint32_t syncType = 0;
-
-            uint32_t semaphoreId = 0;
-
-            PMOS_COMMAND_BUFFER cmdBuffer;
-            memset(&cmdBuffer, 0, sizeof(cmdBuffer));
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::SyncPipe(syncType, semaphoreId, cmdBuffer), MOS_STATUS_SUCCESS);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::ResetSemaphoreTest()
-        {
-            uint32_t syncType = 0;
-
-            uint32_t semaphoreId = 0;
-
-            PMOS_COMMAND_BUFFER cmdBuffer;
-            memset(&cmdBuffer, 0, sizeof(cmdBuffer));
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::ResetSemaphore(syncType, semaphoreId, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::GetQueue(newQueue, &queue), MOS_STATUS_SUCCESS);
 
             return MOS_STATUS_SUCCESS;
         }
 
         MOS_STATUS TestEncodeScalabilitySinglePipe::GetPipeNumberTest()
         {
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::GetPipeNumber(), 0);
-
-            return MOS_STATUS_SUCCESS;
-        }
-
-        MOS_STATUS TestEncodeScalabilitySinglePipe::SendAttrWithFrameTrackingTest()
-        {
-            MOS_COMMAND_BUFFER cmdBuffer;
-            memset(&cmdBuffer, 0, sizeof(cmdBuffer));
-
-            bool frameTrackingRequested = 0;
-
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::SendAttrWithFrameTracking(cmdBuffer, frameTrackingRequested), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::GetPipeNumber(), 0);
 
             return MOS_STATUS_SUCCESS;
         }
 
         MOS_STATUS TestEncodeScalabilitySinglePipe::IsFrameTrackingEnabledTest()
         {
-            EXPECT_EQ(TestEncodeScalabilitySinglePipe::IsFrameTrackingEnabled(), 0);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::IsFrameTrackingEnabled(), 0);
 
             return MOS_STATUS_SUCCESS;
         }

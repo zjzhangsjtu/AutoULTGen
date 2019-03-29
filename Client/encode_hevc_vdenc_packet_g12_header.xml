@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf8"?>
 <encode_hevc_vdenc_packet_g12.h>
   <test_encode_hevc_vdenc_packet_g12.h>
+    <Header file="encode_hevc_vdenc_packet_g12.h"/>
+    <Header file="encode_hevc_vdenc_mock_pipeline_g12.h"/>
+    <Source file="test_encode_hevc_vdenc_packet_g12.h"/>
+    <Source file="gtest/gtest.h"/>
+    <Source file="mhw_utilities.h"/>
   </test_encode_hevc_vdenc_packet_g12.h>
   <encode_hevc_vdenc_packet_g12_test_case.h>
     <Header file="memory_leak_detector.h"/>
@@ -8,6 +13,11 @@
     <Header file="encode_test_fixture.h"/>
     <Header file="test_encode_hevc_vdenc_packet_g12.h"/>
     <Source file="encode_hevc_vdenc_packet_g12_test_case.h"/>
+    <Source file="codechal_debug_ext.h"/>
+    <Source file="media_cmd_task.h"/>
+    <Source file="encode_hevc_vdenc_ult_test_data.h"/>
+    <Source file="codechal_setting_ext.h"/>
+    <Source file="codec_test_environment.h"/>
   </encode_hevc_vdenc_packet_g12_test_case.h>
   <mock_encode_hevc_vdenc_packet_g12.h>
     <Header file=""/>
