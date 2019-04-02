@@ -7,8 +7,7 @@ from sklearn.metrics import accuracy_score
 from sklearn import preprocessing
 from sklearn.svm import LinearSVC
 
-
-my_data = genfromtxt('fake_data_0318.csv', delimiter=',', skip_header=1)
+my_data = genfromtxt('../fake_data_0318.csv', delimiter=',', skip_header=1)
 features = my_data[:, 0:3]
 results = my_data[:, -1].astype(int)
 x_train, x_test, y_train, y_test = train_test_split(features, results, random_state=1, train_size=0.8)
@@ -19,18 +18,15 @@ x_test = scaler.transform(x_test)
 clf = LinearSVC(random_state=1)
 clf.fit(x_train, y_train)
 y_hat = clf.predict(x_train)
-print(accuracy_score(y_hat, y_train, 'Training Set'))
+print(accuracy_score(y_hat, y_train), 'Training Set')
 y_hat = clf.predict(x_test)
-print(accuracy_score(y_hat, y_test, 'Test Set'))
-sample = [[0.5, 9, 3000, 1000, 2, 0, 0, 0]]
-sample = [[i[1] / (i[0] * i[2]), i[3] / i[2], i[4] + i[5] + i[6] + i[7]] for i in sample]
-sample = scaler.transform(sample)
+print(accuracy_score(y_hat, y_test), 'Test Set')
 
 cofs = clf.coef_[0]
 inte = clf.intercept_[0]
 xx = np.linspace(-3.5, 3.5, 100)
 yy = np.linspace(-3.5, 3.5, 100)
-print(cofs, inte)
+print('({})x+({})y+({})z+({})=0'.format(*cofs, inte))
 x, y = np.meshgrid(xx, yy)
 z = (-x * cofs[0] - y * cofs[1] - inte) * 1. / cofs[2]
 colorscale = [[0.0, 'rgb(55, 113, 162)'],
@@ -70,4 +66,4 @@ layout = go.Layout(
     )
 )
 fig = go.Figure(data=data, layout=layout)
-plotly.offline.plot(fig)
+plotly.offline.plot(fig, filename='linear_svc_3d.html')

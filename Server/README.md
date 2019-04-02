@@ -12,4 +12,5 @@ Research and comparisons among the following ML approaches.
 | LogisticRegression (random_state=1,solver='newton-cg')       | 85.63%    | 85%      |
 | LogisticRegression (random_state=1,solver='liblinear')       | 85.63%    | 85%      |
 
-
+> In order to draw graphs, make sure `dot` is in the `PATH`. (Install [`Graphviz`](https://www.graphviz.org/download/) and `dot` is located in the `Graphviz2.38/bin` )
+>
