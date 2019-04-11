@@ -144,16 +144,23 @@ class TestGenerator(Generator):
 
         if method_info['return_type'] == 'MOS_STATUS' or method_info['return_type'] in self.basic_type:
             s = '            EXPECT_EQ(' + info.class_name + '::' + method_info['method_name'] + '('
+            f_expect_return_type = 'MOS_STATUS_SUCCESS'
             for p in method_info['parameters']:
                 name = p['name']
                 if name.startswith('&') or name.startswith('*'):
                     name = name[1:]
+                    f_expect_return_type = 'MOS_STATUS_NULL_POINTER'
                 s = s + name + ', '
             if s[-2:] == ', ':
                 s = s[0:-2]
             if method_info['return_type'] != 'void':
                 if method_info['return_type'] == 'MOS_STATUS':
-                    expect_return_type = 'MOS_STATUS_SUCCESS'
+                    if f_expect_return_type == 'MOS_STATUS_NULL_POINTER':
+                        expect_return_type = 'MOS_STATUS_NULL_POINTER'
+                    else:
+                        expect_return_type = 'MOS_STATUS_SUCCESS'
+                elif method_info['return_type'] == 'bool':
+                    expect_return_type = 'true'
                 elif method_info['return_type'] in self.basic_type:
                     expect_return_type = '0'
                 s = s + '), ' + expect_return_type + ');\n'

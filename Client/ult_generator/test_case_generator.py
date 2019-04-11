@@ -60,7 +60,7 @@ class TestCaseGenerator(Generator):
         lines.append('        //!\n')
         lines.append('        void PrepareEncodeParams(EncoderParams &encodeParams);\n')
         lines.append('\n')
-        lines.append('        ' + self.test_class_name + '        *m_packet = nullptr;\n')
+        lines.append('        ' + self.test_class_name + '        *m_test = nullptr;\n')
         lines.append('\n')
         lines.append('    };\n')
         lines.append('}\n')

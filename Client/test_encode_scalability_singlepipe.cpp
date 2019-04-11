@@ -37,7 +37,7 @@ namespace encode
             MediaScalabilityOption option;
             memset(&option, 0, sizeof(option));
 
-            EXPECT_EQ(EncodeScalabilitySinglePipe::Initialize(option), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::Initialize(option), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -46,7 +46,7 @@ namespace encode
         {
             void *statePars = nullptr;
 
-            EXPECT_EQ(EncodeScalabilitySinglePipe::UpdateState(statePars), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::UpdateState(statePars), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -59,7 +59,7 @@ namespace encode
 
             bool singleTaskPhaseSupportedInPak = 0;
 
-            EXPECT_EQ(EncodeScalabilitySinglePipe::VerifyCmdBuffer(requestedSize, requestedPatchListSize, singleTaskPhaseSupportedInPak), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::VerifyCmdBuffer(requestedSize, requestedPatchListSize, singleTaskPhaseSupportedInPak), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -72,7 +72,7 @@ namespace encode
 
             bool singleTaskPhaseSupportedInPak = 0;
 
-            EXPECT_EQ(EncodeScalabilitySinglePipe::VerifySpaceAvailable(requestedSize, requestedPatchListSize, singleTaskPhaseSupportedInPak), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::VerifySpaceAvailable(requestedSize, requestedPatchListSize, singleTaskPhaseSupportedInPak), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -95,7 +95,7 @@ namespace encode
 
             bool frameTrackingRequested = 0;
 
-            EXPECT_EQ(EncodeScalabilitySinglePipe::SendAttrWithFrameTracking(cmdBuffer, frameTrackingRequested), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::SendAttrWithFrameTracking(cmdBuffer, frameTrackingRequested), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -105,7 +105,7 @@ namespace encode
             MOS_GPUCTX_CREATOPTIONS *gpuCtxCreateOption;
             memset(&gpuCtxCreateOption, 0, sizeof(gpuCtxCreateOption));
 
-            EXPECT_EQ(EncodeScalabilitySinglePipe::GetGpuCtxCreationOption(gpuCtxCreateOption), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::GetGpuCtxCreationOption(gpuCtxCreateOption), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -197,7 +197,7 @@ namespace encode
             ScalabilityPars *params;
             memset(&params, 0, sizeof(params));
 
-            EXPECT_EQ(EncodeScalabilitySinglePipe::IsScalabilityModeMatched(params), 0);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::IsScalabilityModeMatched(params), true);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -210,7 +210,7 @@ namespace encode
             PMOS_GPUCTX_CREATOPTIONS_ENHANCED gpuCtxCreateOption2;
             memset(&gpuCtxCreateOption2, 0, sizeof(gpuCtxCreateOption2));
 
-            EXPECT_EQ(EncodeScalabilitySinglePipe::IsGpuCtxCreateOptionMatched(gpuCtxCreateOption1, gpuCtxCreateOption2), 0);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::IsGpuCtxCreateOptionMatched(gpuCtxCreateOption1, gpuCtxCreateOption2), true);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -222,7 +222,7 @@ namespace encode
             CmQueue *&queue;
             memset(&&queue, 0, sizeof(&queue));
 
-            EXPECT_EQ(EncodeScalabilitySinglePipe::GetQueue(newQueue, &queue), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::GetQueue(newQueue, &queue), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -236,7 +236,7 @@ namespace encode
 
         MOS_STATUS TestEncodeScalabilitySinglePipe::IsFrameTrackingEnabledTest()
         {
-            EXPECT_EQ(EncodeScalabilitySinglePipe::IsFrameTrackingEnabled(), 0);
+            EXPECT_EQ(EncodeScalabilitySinglePipe::IsFrameTrackingEnabled(), true);
 
             return MOS_STATUS_SUCCESS;
         }

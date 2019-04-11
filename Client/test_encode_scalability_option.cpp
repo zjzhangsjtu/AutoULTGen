@@ -36,7 +36,7 @@ namespace encode
             ScalabilityPars *params;
             memset(&params, 0, sizeof(params));
 
-            EXPECT_EQ(EncodeScalabilityOption::SetScalabilityOption(params), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(EncodeScalabilityOption::SetScalabilityOption(params), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -46,7 +46,7 @@ namespace encode
             ScalabilityPars *params;
             memset(&params, 0, sizeof(params));
 
-            EXPECT_EQ(EncodeScalabilityOption::IsScalabilityOptionMatched(params), 0);
+            EXPECT_EQ(EncodeScalabilityOption::IsScalabilityOptionMatched(params), true);
 
             return MOS_STATUS_SUCCESS;
         }

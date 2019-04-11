@@ -39,7 +39,7 @@ namespace encode
             MOS_COMMAND_BUFFER *commandBuffer;
             memset(&commandBuffer, 0, sizeof(commandBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::Submit(commandBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::Submit(commandBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -95,7 +95,7 @@ namespace encode
 
             uint8_t packetPhase = 0;
 
-            EXPECT_EQ(HevcVdencPktG12::PatchSliceLevelCommands(cmdBuffer, packetPhase), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::PatchSliceLevelCommands(cmdBuffer, packetPhase), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -107,7 +107,7 @@ namespace encode
 
             uint8_t packetPhase = 0;
 
-            EXPECT_EQ(HevcVdencPktG12::PatchTileLevelCommands(cmdBuffer, packetPhase), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::PatchTileLevelCommands(cmdBuffer, packetPhase), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -123,7 +123,7 @@ namespace encode
 
             uint32_t tileRowPass = 0;
 
-            EXPECT_EQ(HevcVdencPktG12::AddOneTileCommands(cmdBuffer, tileRow, tileCol, tileRowPass), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddOneTileCommands(cmdBuffer, tileRow, tileCol, tileRowPass), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -133,7 +133,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddSlicesCommandsInTile(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddSlicesCommandsInTile(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -149,7 +149,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddPicStateWithNoTile(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddPicStateWithNoTile(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -159,7 +159,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddPicStateWithTile(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddPicStateWithTile(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -169,7 +169,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddHcpPipeBufAddrCmd(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddHcpPipeBufAddrCmd(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -179,7 +179,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddPictureHcpCommands(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddPictureHcpCommands(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -192,7 +192,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddVdencWalkerStateCmd(params, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddVdencWalkerStateCmd(params, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -211,7 +211,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddPictureVdencCommands(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddPictureVdencCommands(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -221,7 +221,7 @@ namespace encode
             MHW_VDBOX_PIPE_BUF_ADDR_PARAMS pipeBufAddrParams;
             memset(&pipeBufAddrParams, 0, sizeof(pipeBufAddrParams));
 
-            EXPECT_EQ(HevcVdencPktG12::SetVdencPipeBufAddrParams(pipeBufAddrParams), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::SetVdencPipeBufAddrParams(pipeBufAddrParams), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -233,7 +233,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::PatchPictureLevelCommands(packetPhase, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::PatchPictureLevelCommands(packetPhase, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -243,7 +243,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::InsertSeqStreamEnd(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::InsertSeqStreamEnd(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -253,7 +253,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::EnsureAllCommandsExecuted(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::EnsureAllCommandsExecuted(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -288,7 +288,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddHcpPipeModeSelect(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddHcpPipeModeSelect(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -298,7 +298,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddHcpSurfaces(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddHcpSurfaces(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -331,7 +331,7 @@ namespace encode
 
             uint32_t currSlcIdx = 0;
 
-            EXPECT_EQ(HevcVdencPktG12::SetHcpSliceStateParams(sliceStateParams, slcData, currSlcIdx), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::SetHcpSliceStateParams(sliceStateParams, slcData, currSlcIdx), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -379,7 +379,7 @@ namespace encode
 
             void *statusReport = nullptr;
 
-            EXPECT_EQ(HevcVdencPktG12::Completed(mfxStatus, rcsStatus, statusReport), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::Completed(mfxStatus, rcsStatus, statusReport), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -390,7 +390,7 @@ namespace encode
 
             uint32_t vdencPicturePatchListSize = 0;
 
-            EXPECT_EQ(HevcVdencPktG12::GetVdencStateCommandsDataSize(vdencPictureStatesSize, vdencPicturePatchListSize), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::GetVdencStateCommandsDataSize(vdencPictureStatesSize, vdencPicturePatchListSize), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -401,7 +401,7 @@ namespace encode
 
             uint32_t requestedPatchListSize = 0;
 
-            EXPECT_EQ(HevcVdencPktG12::CalculateCommandSize(commandBufferSize, requestedPatchListSize), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::CalculateCommandSize(commandBufferSize, requestedPatchListSize), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -440,7 +440,7 @@ namespace encode
             MOS_COMMAND_BUFFER *cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::EndStatusReport(srType, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::EndStatusReport(srType, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -456,7 +456,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::ReadHcpStatus(vdboxIndex, statusReport, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::ReadHcpStatus(vdboxIndex, statusReport, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -490,7 +490,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddHcpIndObjBaseAddrCmd(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddHcpIndObjBaseAddrCmd(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -509,7 +509,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddHcpQmStateCmd(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddHcpQmStateCmd(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -558,7 +558,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::SendHwSliceEncodeCommand(params, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::SendHwSliceEncodeCommand(params, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -592,7 +592,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::VdencPipeModeSelect(pipeModeSelectParams, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::VdencPipeModeSelect(pipeModeSelectParams, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -602,7 +602,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::SetVdencSurfaces(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::SetVdencSurfaces(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -615,7 +615,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddVdencPipeBufAddrCmd(pipeBufAddrParams, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddVdencPipeBufAddrCmd(pipeBufAddrParams, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -625,7 +625,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::ReadSliceSizeForSinglePipe(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::ReadSliceSizeForSinglePipe(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -635,7 +635,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::ReadSliceSize(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::ReadSliceSize(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -657,7 +657,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::CopyDataBlock(sourceSurface, sourceOffset, destSurface, destOffset, copySize, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::CopyDataBlock(sourceSurface, sourceOffset, destSurface, destOffset, copySize, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -667,7 +667,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::WaitHevcDone(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::WaitHevcDone(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -677,7 +677,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::WaitVdencDone(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::WaitVdencDone(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -687,7 +687,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::WaitHevcVdencDone(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::WaitHevcVdencDone(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -700,7 +700,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddHcpWeightOffsetStateCmd(hevcSlcParams, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddHcpWeightOffsetStateCmd(hevcSlcParams, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -713,7 +713,7 @@ namespace encode
             PMHW_VDBOX_HEVC_PIC_STATE params;
             memset(&params, 0, sizeof(params));
 
-            EXPECT_EQ(HevcVdencPktG12::AddHcpHevcVp9RdoqStateCmd(cmdBuffer, params), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddHcpHevcVp9RdoqStateCmd(cmdBuffer, params), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -729,7 +729,7 @@ namespace encode
             PMHW_BATCH_BUFFER batchBuffer;
             memset(&batchBuffer, 0, sizeof(batchBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddHcpPakInsertSliceHeader(params, cmdBuffer, batchBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddHcpPakInsertSliceHeader(params, cmdBuffer, batchBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -742,7 +742,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddVdencWeightOffsetStateCmd(hevcSlcParams, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddVdencWeightOffsetStateCmd(hevcSlcParams, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -752,7 +752,7 @@ namespace encode
             MHW_VDBOX_NODE_IND vdboxIndex;
             memset(&vdboxIndex, 0, sizeof(vdboxIndex));
 
-            EXPECT_EQ(HevcVdencPktG12::ValidateVdboxIdx(vdboxIndex), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::ValidateVdboxIdx(vdboxIndex), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -779,7 +779,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::SetSemaphoreMem(semaphoreMem, value, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::SetSemaphoreMem(semaphoreMem, value, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -789,7 +789,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::SendPrologCmds(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::SendPrologCmds(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -817,7 +817,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::ReadSseStatistics(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::ReadSseStatistics(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -827,7 +827,7 @@ namespace encode
             MOS_COMMAND_BUFFER cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::AddForceWakeup(cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::AddForceWakeup(cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -856,7 +856,7 @@ namespace encode
             EncodeStatusReportData *statusReportData;
             memset(&statusReportData, 0, sizeof(statusReportData));
 
-            EXPECT_EQ(HevcVdencPktG12::CalculatePSNR(encodeStatusMfx, statusReportData), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::CalculatePSNR(encodeStatusMfx, statusReportData), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -883,7 +883,7 @@ namespace encode
             EncodeStatusReportData *statusReportData;
             memset(&statusReportData, 0, sizeof(statusReportData));
 
-            EXPECT_EQ(HevcVdencPktG12::DumpResources(encodeStatusMfx, statusReportData), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::DumpResources(encodeStatusMfx, statusReportData), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -908,7 +908,7 @@ namespace encode
             MOS_COMMAND_BUFFER *cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::StartStatusReport(srType, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::StartStatusReport(srType, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -920,7 +920,7 @@ namespace encode
             MOS_COMMAND_BUFFER *cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::UpdateStatusReport(srType, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::UpdateStatusReport(srType, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -937,7 +937,7 @@ namespace encode
             MOS_COMMAND_BUFFER *cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::SetStartTag(osResource, offset, srType, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::SetStartTag(osResource, offset, srType, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
@@ -954,7 +954,7 @@ namespace encode
             MOS_COMMAND_BUFFER *cmdBuffer;
             memset(&cmdBuffer, 0, sizeof(cmdBuffer));
 
-            EXPECT_EQ(HevcVdencPktG12::SetEndTag(osResource, offset, srType, cmdBuffer), MOS_STATUS_SUCCESS);
+            EXPECT_EQ(HevcVdencPktG12::SetEndTag(osResource, offset, srType, cmdBuffer), MOS_STATUS_NULL_POINTER);
 
             return MOS_STATUS_SUCCESS;
         }
