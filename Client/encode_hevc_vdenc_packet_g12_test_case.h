@@ -68,7 +68,7 @@ namespace encode
         //!
         void PrepareEncodeParams(EncoderParams &encodeParams);
 
-        TestHevcVdencPktG12        *m_packet = nullptr;
+        TestHevcVdencPktG12        *m_test = nullptr;
 
     };
 }

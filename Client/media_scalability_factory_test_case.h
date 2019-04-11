@@ -68,7 +68,7 @@ namespace
         //!
         void PrepareEncodeParams(EncoderParams &encodeParams);
 
-        TestMediaScalabilityFactory        *m_packet = nullptr;
+        TestMediaScalabilityFactory        *m_test = nullptr;
 
     };
 }

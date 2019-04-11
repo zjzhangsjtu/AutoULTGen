@@ -68,7 +68,7 @@ namespace encode
         //!
         void PrepareEncodeParams(EncoderParams &encodeParams);
 
-        TestEncodeScalabilityOption        *m_packet = nullptr;
+        TestEncodeScalabilityOption        *m_test = nullptr;
 
     };
 }
